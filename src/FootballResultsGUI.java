@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -5,8 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTextField; 
-
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JLabel;
 public class FootballResultsGUI extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) {
@@ -18,7 +20,8 @@ public class FootballResultsGUI extends JFrame implements ActionListener{
 	private JButton Italybtn;
 	private JButton Germanybtn;
 	private JButton Brazilbtn;
-          
+    private JLabel resultLabel;
+         
 		public FootballResultsGUI() {
 			
 		super ("نتايج فوتبال");
@@ -27,19 +30,24 @@ public class FootballResultsGUI extends JFrame implements ActionListener{
         setLayout(null);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		getContentPane().setBackground(Color.DARK_GRAY);
 		setLocationRelativeTo(null);
-		 FootballResults FootballResults = new FootballResults();
+		/* FootballResults FootballResults = new FootballResults();*/
 		 addGuiComponents();
 	}
 
 	private void addGuiComponents() {
 			// TODO Auto-generated method stub
+		JLabel chooseLabel = new JLabel("choose a country*-*");
+		chooseLabel.setForeground(Color.CYAN);
 		
-		JTextField TextField = new JTextField("CHOOSE A COUNTRY");
-		TextField.setBounds(15,15,350,45);
-		TextField.setFont(new Font( "CHOOSE A COUNTRY", Font.PLAIN, 24));
-		add(TextField);
+		chooseLabel.setBounds(150,5,2000,100);
+		chooseLabel.setFont(new Font("Dialog",Font.ITALIC,20));
+	
+		add(chooseLabel);
+		
+		
+	
 		Iranbtn = new JButton("Iran");
 		Iranbtn.setBounds(40, 300, 105, 80);
 		Iranbtn.setFont(new Font("Dialog" , Font.PLAIN, 16));
@@ -82,10 +90,12 @@ public class FootballResultsGUI extends JFrame implements ActionListener{
 	    Brazilbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		add(Brazilbtn);
 		
-		
-		
-		
-		
+		resultLabel=new JLabel();
+		resultLabel.setForeground(Color.YELLOW);
+		resultLabel.setBounds(40,400,400,100);
+		resultLabel.setFont(new Font("Dialog",Font.ITALIC,18));
+		add(resultLabel);
+	  
 		
 		
 		}
@@ -93,7 +103,8 @@ public class FootballResultsGUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+	
 		
-	}
-
+		   String choice = e.getActionCommand().toString();}
 }
+	       
